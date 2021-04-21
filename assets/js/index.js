@@ -1,175 +1,74 @@
 'use strict';
+/*
+const [firstButton, secondButton] = document.getElementsByTagName('button');
+console.dir(firstButton);
 
-// 4 Создать классы
+const[mainSection] = document.getElementsByClassName ('main-section');
+console.log(mainSection);
 
-class Book {
-    constructor (author, name, year, publishingHouse) {
-        this.author = author;
-        this.name = name;
-        this.year = year;
-        this.publishingHouse = publishingHouse; 
-    }
-    set author (newAuthor){
-        if (typeof newAuthor !== 'string'){
-            throw new TypeError();
-        }
-        this._author = newAuthor;
-    }
-    get author() {
-        return this._author;
-    }
-    set name (newName){
-        if (typeof newName !== 'string'){
-            throw new TypeError();
-        }
-        this._name = newName;
-    }
-    get name() {
-        return this._name;
-    }
-    set year (newYear){
-        if (typeof newYear !== 'number'){
-            throw new TypeError();
-        }
-        this._year = newYear;
-    }
-    get year() {
-        return this._year;
-    }
-    set publishingHouse (newPublishingHouse){
-        if (typeof newPublishingHouse !== 'string'){
-            throw new TypeError();
-        }
-        this._publishingHouse = newPublishingHouse;
-    }
-    get publishingHouse() {
-        return this._publishingHouse;
-    }
+const buttons = [...document.getElementsByClassName('main-button')];
+buttons.forEach((elem)=> {
+    elem.addEventListener('click', alertOnClick)
+})
+
+function alertOnClick () {
+    alert ("Ура! Работает!");
 }
-class ElectronicBook extends Book {
-    constructor (author, name, year, publishingHouse, format, elNumber) {
-        super (author, name, year, publishingHouse);
+firstButton.addEventListener('click', alertOnClick);
 
-        this.format = format;
-        this.elNumber = elNumber;
-    }
-    set format (newFormat){
-        if (typeof newFormat !== 'string') {
-            throw new TypeError();
-        }
-        this._format = newFormat;
-    }
-    get format(){
-        return this._format;
-    }
+const par = document.getElementById('unique');
+console.log(par);
 
+
+const mainSection = document.querySelector ('.main-section');
+console.log(mainSection);
+
+const buttons = document.querySelectorAll ('.main-button');
+console.log(main-button);
+
+const par = document.querySelector('#unique');
+console.log(par);
+
+const heading = document.querySelector(".main-section > h1");
+console.log(heading);
+*/
+/*
+const img = document.querySelector(".art > img");
+console.log (img);
+
+const heading2 = document.querySelector(".art > h1");
+console.log(heading2);
+
+
+const textSpan = document.querySelector(".art > p > span");
+
+console.log(textSpan);
+
+// или
+
+const art = document.querySelector('.art');
+
+const heading = art.querySelector('h1');
+const img = art.querySelector('img');
+const span = art.querySelector('p > span');
+
+*/
+
+const imageDB = [
+
+];
+const slider = new Slider(imageDB);
+
+const slideImage = document.querySelector('.slide');
+
+const[prevButton, nextButton] = document.querySelectorAll('.slider-container > button')
+
+updateView(img)
+prevButton.addEventListener("click", () => {
+    const newImage = slider.prev();
+    updateView (newImage);
+});
+
+function updateView(img) {
+    slideImage.setAttribute('src', imgLink);
 }
-const b = new Book ('Mark Tven', 'Tom Soyer', 2019, 'Svet');
-const elB = new ElectronicBook ('Pushkin', 'Evgeniy Onegin', 1995, 'Ranok', 'elBook', '12345');
-console.log(b);
-console.log (elB);
-
-// 2 Реализовать с использованием классов. Для каждого поля создать get set с проверкой типов
-
-class Student {
-    constructor (name, surname, isMale, contactInfo, univerInfo) {
-        this.name = name;
-        this.surname = surname;
-        this.isMale = isMale;
-        this.contactInfo = contactInfo;
-        this.univerInfo = univerInfo;
-    }
-    set name (newName){
-        if (typeof newName !== 'string') {
-
-            throw new TypeError();
-        }
-        this._name = newName;
-    }
-    get name() {
-        return this._name;
-    }
-    set surname (newSurname){
-        if (typeof newSurname !== 'string') {
-
-            throw new TypeError();
-        }
-        this._surname = newSurname;
-    }
-    get surname() {
-        return this._surname;
-    }
-    set isMale (newIsMale){
-        if (typeof newIsMale !== 'boolean') {
-
-            throw new TypeError();
-        }
-        this._isMale = newIsMale;
-    }
-    get isMale() {
-        return this._isMale;
-    }
-    set contactInfo (newContactInfo){
-        if (typeof newContactInfo !== 'string') {
-
-            throw new TypeError();
-        }
-        this._contactInfo = newContactInfo;
-    }
-    get contactInfo() {
-        return this._contactInfo;
-    }
-
-    get faculty() {
-        return this._univerInfo.faculty;
-    }
-    get department () {
-        return this._univerInfo.department;
-    }
-}
-
-class UniverInfo {
-    constructor (faculty, department) {
-        this.faculty = faculty;
-        this.department = department;
-    }
-    set faculty (newFaculty){
-        if (typeof newFaculty !== 'string'){
-            throw new TypeError();
-        }
-        this._faculty = newFaculty;
-    }
-    set department (newDepartment){
-        if (typeof newDepartment !== 'string'){
-            throw new TypeError();
-        }
-        this._departmnet = newDepartment;
-    }
-}
-const ui = new UniverInfo ('management', 'Organization Management');
-
-const stud1 = new Student ('Mark', 'Smith', true, 'contact info',ui);
-const stud2 = new Student ('Alica', 'Ivanova', false, 'contacts', ui)
-
-console.log (stud1);
-console.log (stud2);
-console.log (ui);
-
-// 1 Вычислить сумму первых п элементов последовательности. Параметр N задает пользователь
-
-let sumCounter = 0;
-const number = +prompt ("Write a number:");
-let sum = 0;
-
-while(sumCounter < number) {
-    sumCounter ++;
-    sum += sumCounter;
-}
-console.log (sum);
-
-
-// 3 Создать числовой массив и проинициализировать его из 25 элементов
-
-const numArray = [];
-
-
