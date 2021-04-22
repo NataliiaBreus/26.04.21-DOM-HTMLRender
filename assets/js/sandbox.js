@@ -26,12 +26,12 @@ const btn = document.querySelector('#unique');
 
 function createBtnHandler(clicksAmount=5) {
     const btnHandler = ({target: targetBtn}) =>{
+        if(clickAmount <= 0) {
+            targetBtn.removeEventListener("click, btnHandler");
+            return;
+        }
         alert ('success');
-        console.log(this);
-        clicksAmount --;
-        if(clicksAmount === 0) {
-            btn.removeEventListener('click', btnHandler);
-        } 
+        clicksAmount --; 
     };
     return btnHandler;
 }
