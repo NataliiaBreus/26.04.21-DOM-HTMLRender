@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+.slider-container {
+    display: flex;
+    max-width: 500px;
+    position: relative;
+}
+.slide {
+    width: 100%;
+}
+.btn-controls {
+    color: dodgerblue;
+    font-size: 3rem;
+    font-weight: bold;
+    background: rgba(0,0,0, 0.05);
+    border-radius: 0.5rem;
+    position: absolute;
+    border: none;
+    outline: none;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.next-btn {
+    right: 0;
+}
+.btn-controls:hover{
+    background: rgba(0,0,0,0.3);
+}
+.btn-controls:focus{
+    color:red;
+}

@@ -1,0 +1,61 @@
+// Тема замыкание
+/*
+function makeCounter(){
+    let count = 0;
+    function counter (){
+        
+        return ++ count;
+    }
+}
+const counter1 = makeCounter();
+const counter2 = makeCounter();
+
+
+// task 1
+
+function createAdder(n) {
+    return function (m) {
+        return n +=m;
+    }
+};
+     const adder = createAdder(10);
+
+
+
+const btn = document.querySelector('#unique');
+
+function createBtnHandler(clicksAmount=5) {
+    const btnHandler = ({target: targetBtn}) =>{
+        alert ('success');
+        console.log(this);
+        clicksAmount --;
+        if(clicksAmount === 0) {
+            btn.removeEventListener('click', btnHandler);
+        } 
+    };
+    return btnHandler;
+}
+
+btn.addEventListener('click', btnHandler, {once: true});
+*/
+
+btn.addEventListener("click", (e)=>{
+    console.group();
+    console.log(e);
+    console.log(e.target === btn);
+    console.log(e.currentTarget);
+    console.groupEnd();
+});
+btn.addEventListener("click", btnHandler);
+
+window.addEventListener("click", btnHandler);
+document.addEventListener("click", btnHandler);
+document.body.addEventListener("click", btnHandler);
+
+
+
+
+
+         
+
+        
