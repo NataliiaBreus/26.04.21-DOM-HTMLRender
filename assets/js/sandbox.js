@@ -38,7 +38,7 @@ function createBtnHandler(clicksAmount=5) {
 
 btn.addEventListener('click', createBtnHandler(3));
 btn2.addEventListener('click', createBtnHandler(2));
-*/
+
 
 btn.addEventListener("click", (e)=>{
     console.group();
@@ -52,6 +52,8 @@ btn.addEventListener("click", btnHandler);
 window.addEventListener("click", btnHandler);
 document.addEventListener("click", btnHandler);
 document.body.addEventListener("click", btnHandler);
+*/
+
 
 
 
